@@ -18,13 +18,13 @@
 			</div>
 			<div class="owl-carousel">
 				<div>
-					<img src="http://lorempixel.com/640/480/">
+					<img src="assets/img/480.jpg">
 				</div>
 				<div>
-					<img src="http://lorempixel.com/640/520/">
+					<img src="assets/img/520.jpg">
 				</div>
 				<div>
-					<img src="http://lorempixel.com/640/600/">
+					<img src="assets/img/600.jpg">
 				</div>
 			</div>
 		</div>
