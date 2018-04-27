@@ -2,11 +2,11 @@ $( document ).ready(function() {
     console.log( "Ready! Local storage number is " + localStorage.getItem("price_editable") );
 
     var price = $(".price_editable"),
-    	meters_price = $(".result");
-    	heart = $(".fa-heart");
-        price_storage = localStorage.getItem("price_editable");
-        meters_storage = localStorage.getItem("meters_result");
-        fav_storage = localStorage.getItem("favourite");
+    	meters_price = $(".result"),
+        price_storage = localStorage.getItem("price_editable"),
+        meters_storage = localStorage.getItem("meters_result"),
+        heart = $(".fa-heart"),
+        isFavourite = localStorage.getItem('isFavourite');
 
     if (!price_storage || !meters_storage){
     	price.text('1,400,000');
@@ -36,22 +36,23 @@ $( document ).ready(function() {
         items:1,
     });
 
-    if (localStorage.getItem("favourite") == 1){
+    if (isFavourite) {
         heart.css("color", "#ff0000");
     }
 
-    heart.on("click", function(){
-        if (!localStorage.getItem("favourite")){
-            heart.css("color", "#ff0000");
-            localStorage.setItem("favourite", 1);
-        } else {
+    heart.on('click', function (e) {
+        if (isFavourite) {
             heart.css("color", "#000000");
-            localStorage.removeItem("favourite");
-            console.log(fav_storage);
+            isFavourite = false;
+            localStorage.removeItem('isFavourite');
+        } else {
+            heart.css("color", "#ff0000");
+            isFavourite = true;
+            localStorage.setItem('isFavourite', 1);
         }
     });
 
-    console.log(fav_storage);
+    
 
 });
 
