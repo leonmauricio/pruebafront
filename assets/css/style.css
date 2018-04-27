@@ -1,0 +1,151 @@
+body{
+	font-family: 'Roboto', sans-serif;
+}
+
+.wrapper{
+	min-width: 734px;
+	max-width: 875px;
+	overflow:auto;
+	position:relative
+}
+
+.slider-overlay{
+	width: 40%;
+	float: left;
+}
+
+.owl-carousel{
+	width: 100%;	
+}
+
+.owl-carousel img{
+	height: 100%;
+	max-height: 260px;
+}
+
+.wrapper .owl-carousel .owl-nav button.owl-next{
+	bottom: 40%;
+	left: 90%;
+	position: absolute;
+	color: #FFF;
+	font-size: 70px;
+	text-shadow: -1px 0 #AEAEAE, 0 1px #AEAEAE, 1px 0 #AEAEAE, 0 -1px #AEAEAE;
+}
+
+.wrapper .owl-carousel .owl-nav button.owl-prev{
+	bottom: 40%;
+	right: 90%;
+	position: absolute;
+	color: #FFF;
+	font-size: 70px;
+	text-shadow: -1px 0 #AEAEAE, 0 1px #AEAEAE, 1px 0 #AEAEAE, 0 -1px #AEAEAE;
+}
+
+.fa-heart{
+	position: absolute;
+	top: 15px;
+	left: 35%;
+	z-index: 100;
+	font-size: 30px;
+	text-shadow: -2px 0 #FFF, 0 2px #FFF, 2px 0 #FFF, 0 -2px #FFF;
+}
+
+.destacado{
+	position: absolute;
+	top: 10px;
+	left: 0%;
+	z-index: 100;
+	background-color: #8963D4;
+	color: #FFF;
+	font-size: 15px;
+	padding: 3px 8px;
+}
+
+.info{
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 60%;
+}
+
+.info_text{
+	padding-left: 20px;
+}
+
+.features{
+	background-color: #EAEAEA;
+	position: absolute;
+	bottom: 20px;
+	width: 60%;
+	padding: 20px 0px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.features .meters{
+	padding-left: 15px;
+}
+
+.features span{
+	padding-left: 7px;
+}
+
+.contacto{
+	position: absolute;
+	right: 27px;
+	font-size: 14px;
+	text-decoration: none;
+	color: #2A9EE2;
+}
+
+.title{
+	max-width: 95%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	color: #2A9EE2;
+	font-size: 19px;
+}
+
+.location{
+	max-width: 57%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	color: #AEAEAE;
+	font-size: 13px;
+}
+
+.description{
+	white-space: normal;
+	font-size: 14px;
+	max-width: 90%;
+	margin-top: 10px;
+}
+
+.price{
+	font-weight: bold;
+	font-size: 26px;
+}
+
+.price_meters{
+	font-style: italic;
+	color: #2A9EE2;
+	font-size: 13px;
+	margin-left: 5px;
+	font-weight: bold;
+	margin-right: 2px;
+}
+
+.result{
+	color: #2A9EE2;
+	font-weight: bold;
+	font-size: 16px;
+	font-style: italic;
+}
+
+.helper{
+	width: 875px;
+	display:block;
+}
