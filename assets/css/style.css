@@ -1,16 +1,17 @@
 body{
 	font-family: 'Roboto', sans-serif;
+	margin: 0px;
 }
 
 .wrapper{
-	min-width: 734px;
-	max-width: 875px;
+	min-width: 320px;
+	max-width: 414px;
 	overflow:auto;
 	position:relative
 }
 
 .slider-overlay{
-	width: 40%;
+	width: 100%;
 	float: left;
 }
 
@@ -19,8 +20,19 @@ body{
 }
 
 .owl-carousel img{
-	height: 100%;
-	max-height: 260px;
+	width: 100%;
+	max-height: 240px;
+}
+
+.owl-carousel .darken {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Adjust the color values to achieve desired darkness */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
 }
 
 .wrapper .owl-carousel .owl-nav button.owl-next{
@@ -44,7 +56,7 @@ body{
 .fa-heart{
 	position: absolute;
 	top: 15px;
-	left: 35%;
+	left: 85%;
 	z-index: 100;
 	font-size: 30px;
 	text-shadow: -2px 0 #FFF, 0 2px #FFF, 2px 0 #FFF, 0 -2px #FFF;
@@ -66,29 +78,33 @@ body{
 	overflow: hidden;
 	white-space: nowrap;
     text-overflow: ellipsis;
-    width: 60%;
+    width: 100%;
 }
 
 .info_text{
 	padding-left: 20px;
 }
 
-.features{
-	background-color: #EAEAEA;
-	position: absolute;
-	bottom: 20px;
-	width: 60%;
-	padding: 20px 0px;
-	font-size: 12px;
-	font-weight: bold;
+.features_desktop{
+	display: none;
 }
 
-.features .meters{
+.features_desktop .meters{
 	padding-left: 15px;
 }
 
-.features span{
+.features_desktop span{
 	padding-left: 7px;
+}
+
+.features_mobile{
+	position: absolute;
+	bottom: 55%;
+	left: 15px;
+	z-index: 100;
+	color: #FFF;
+	font-size: 15px;
+	text-shadow: -1px 0 #7c7c7c, 0 1px #7c7c7c, 1px 0 #7c7c7c, 0 -1px #7c7c7c;
 }
 
 .contacto{
@@ -97,6 +113,11 @@ body{
 	font-size: 14px;
 	text-decoration: none;
 	color: #2A9EE2;
+	bottom: 0%;
+}
+
+.enviar{
+	bottom: 5%;
 }
 
 .title{
@@ -105,28 +126,45 @@ body{
 	text-overflow: ellipsis;
 	display: block;
 	color: #2A9EE2;
-	font-size: 19px;
+	white-space: initial;
+	margin-top: 0px;
+	font-size: 16px;
+	font-weight: normal;
 }
 
 .location{
-	max-width: 57%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: block;
 	color: #AEAEAE;
-	font-size: 13px;
+	max-width: 92%;
+	font-size: 12px;
+}
+
+button:focus{
+	outline: 0px;
 }
 
 .description{
 	white-space: normal;
-	font-size: 14px;
+	font-size: 13px;
 	max-width: 90%;
 	margin-top: 10px;
+	padding-bottom: 30px;
 }
 
-.price{
-	font-weight: bold;
-	font-size: 26px;
+.price_desktop{
+	display: none;
+}
+
+.price_mobile{
+	position: absolute;
+	bottom: 60%;
+	left: 15px;
+	z-index: 100;
+	color: #FFF;
+	font-size: 30px;
+	text-shadow: -1px 0 #7c7c7c, 0 1px #7c7c7c, 1px 0 #7c7c7c, 0 -1px #7c7c7c;
 }
 
 .price_meters{
@@ -148,4 +186,160 @@ body{
 .helper{
 	width: 875px;
 	display:block;
+}
+
+.modal-header{
+	display: initial;
+	border: none;
+}
+
+.modal-title{
+	font-size: 20px;
+	color: #2A9EE2;
+}
+
+.modal-body{
+	padding: 5px 16px;
+}
+
+.modal-footer{
+	border: none;
+}
+
+.form-control{
+	border: none !important;
+	border-bottom: 1px solid #ced4da !important;
+}
+
+
+.form-label {
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	color: #999;
+	background-color: #fff;
+	z-index: 10;
+	transition: transform 150ms ease-out, font-size 150ms ease-out;
+}
+
+.focused .form-label {
+	transform: translateY(-125%);
+	font-size: .75em;
+}
+
+.form-input {
+	position: relative;
+	padding: 12px 0px 5px 0;
+	width: 100%;
+	outline: 0;
+	border: 0;
+	box-shadow: 0 1px 0 0 #e5e5e5;
+	transition: box-shadow 150ms ease-out;
+}
+
+.form-input.valid {
+	box-shadow: 0 2px 0 0 #23DC3D;
+}
+
+.form-input.error{
+	box-shadow: 0 2px 0 0 #ff0000;
+}
+
+.error_message{
+	color: #ff0000;
+	font-size: 12px;
+	display: none;
+}
+
+@media only screen and (min-width: 730px){
+
+	body{
+		margin: 8px;
+	}
+
+	.slider-overlay{
+		width: 40%;
+		float: left;
+	}
+
+	.wrapper{
+		min-width: 734px;
+		max-width: 875px;
+	}
+
+	.owl-carousel img{
+		width: initial;
+		height: 100%;
+		max-height: 260px;
+	}
+
+	.info{
+	    width: 60%;
+	}
+
+	.fa-heart{
+		left: 35%;
+	}
+
+	.title{
+		white-space: nowrap;
+		margin-top: 5px;
+		font-size: 19px;
+		font-weight: bold;
+	}
+
+	.location{
+		max-width: 57%;
+		font-size: 13px;
+	}
+
+	.price_mobile{
+		display: none;
+	}
+
+	.features_mobile{
+		display: none;
+	}
+
+	.price_desktop{
+		display: initial;
+		font-weight: bold;
+		font-size: 26px;
+	}
+
+	.features_desktop{
+		display: initial;
+		background-color: #EAEAEA;
+		position: absolute;
+		bottom: 24px;
+		width: 60%;
+		padding: 20px 0px;
+		font-size: 12px;
+		font-weight: bold;
+	}
+
+	.features_desktop .meters{
+		padding-left: 15px;
+	}
+
+	.features_desktop span{
+		padding-left: 7px;
+	}
+
+	.description{
+		padding-bottom: 0px;
+	}
+
+	.contacto{
+		bottom: 15%;
+	}
+	
+	.enviar{
+		bottom: 10%;
+	}
+
+	.modal-dialog{
+		max-width: 55%;
+	}
+
 }

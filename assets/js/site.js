@@ -6,7 +6,8 @@ $( document ).ready(function() {
         price_storage = localStorage.getItem("price_editable"),
         meters_storage = localStorage.getItem("meters_result"),
         heart = $(".fa-heart"),
-        isFavourite = localStorage.getItem('isFavourite');
+        isFavourite = localStorage.getItem('isFavourite'),
+        input = $('input');
 
     if (!price_storage || !meters_storage){
     	price.text('1,400,000');
@@ -17,17 +18,15 @@ $( document ).ready(function() {
     };
 
     price.on( "focusout", function(){
-    	var price_clean = parseFloat(price.text().replace(/[^0-9.]/g, ""));
-    	price.text(numberWithCommas(price_clean));
+    	var price_clean = parseFloat($(this).text().replace(/[^0-9.]/g, ""));
+    	$(this).text(numberWithCommas(price_clean));
 
     	var meters_result = numberWithCommas(calculateMetersPrice(price_clean));
     	meters_price.text(meters_result);
 
     	localStorage.setItem("price_editable", price_clean);
         localStorage.setItem("meters_result", meters_result);
-    	localStorage.removeItem("favourite");
     });
-
 
     $('.owl-carousel').owlCarousel({
         loop:true,
@@ -52,9 +51,39 @@ $( document ).ready(function() {
         }
     });
 
-    
+    input.focus(function(){
+        $(this).parents('.form-group').addClass('focused');
+    });
+
+    input.blur(function(){
+        var inputValue = $(this);
+        if ( inputValue.val() == "" ) {
+            inputValue.parents('.form-group').removeClass('focused');  
+        }
+        if (!isEmail(inputValue.val())){
+            inputValue.addClass('error');
+            inputValue.removeClass('valid');
+            $(".error_message").show();
+        } else {
+            inputValue.addClass('valid');
+            inputValue.removeClass('error');
+            $(".error_message").hide();
+        }
+    });
+
+    $('#mailModal').on('hidden.bs.modal', function (e) {
+        input.removeClass('valid error');
+        input.parents('.form-group').removeClass('focused');
+        $(".error_message").hide();
+        $(this).find("input,textarea,select").val('').end();
+    });  
 
 });
+
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+};  
 
 function numberWithCommas(number) {
     var parts = number.toString().split(".");
